@@ -14,7 +14,7 @@ printfoo(const char *s, const struct foo *fp)
 {
 
 	printf(s);
-	printf("\tstruct at 0x%p", fp);
+	printf("\tstruct at 0x%p\n", fp);
 	printf("\tfoo.a = %d\n", fp->a);
 	printf("\tfoo.b = %d\n", fp->b);
 	printf("\tfoo.c = %d\n", fp->c);
@@ -25,8 +25,9 @@ void *
 thr_fn1(void *arg)
 {
 	struct foo foo = {1, 2, 3, 4};
-	printfoo("thread 1:", &foo);
+	printfoo("thread 1:\n", &foo);
 	pthread_exit((void *)&foo);
+//	return((void *)&foo);
 }
 
 void *thr_fn2(void *arg)
@@ -47,12 +48,12 @@ int main()
 	}
 
 	err = pthread_join(tid1, (void *)&fp);
+#if 1
 	if(err) {
 		printf("cat't join with thread 1: %s\n", strerror(err));
 	}
 	
 	sleep(1);
-
 	printf("parent starting the second thread\n");
 	err = pthread_create(&tid2, NULL, thr_fn2, NULL);
 	if(err) {
@@ -60,6 +61,7 @@ int main()
 		exit(err);
 	}
 	sleep(1);
+#endif
 	printfoo("parent:\n", fp);
 	exit(0);
 }
