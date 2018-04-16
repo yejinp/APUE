@@ -18,7 +18,8 @@ int main(int argc, char *argv[])
 	}
 
 	size = offsetof(struct sockaddr_un, sun_path) + strlen(un.sun_path);
-	if(bind(fd, (struct sockaddr *)&un, size) < 0) {
+	//if(bind(fd, (struct sockaddr *)&un, size) < 0) {
+	if(bind(fd, (struct sockaddr *)&un, sizeof(un)) < 0) {
 		printf("bind failed.\n");
 		exit(8);
 	}
