@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <errno.h>
+#include <string.h>
+#include <unistd.h>
 
 #define		MAXLINE	1024
 static void sig_pipe(int);
@@ -77,7 +79,7 @@ main(void)
 		}
 
 		if(execl("./add2", "add2", (char *)0) < 0 ) {
-			perror("execl error")
+			perror("execl error");
 		}
 	} 
 	exit(0);
