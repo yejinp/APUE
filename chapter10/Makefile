@@ -7,6 +7,7 @@ OBJECTS=
 
 TARGET=figure10_2
 TARGET+=figure10_5
+TARGET+=figure10_6
 TARGET+=figure10_7
 TARGET+=figure10_8
 TARGET+=figure10_9
@@ -22,6 +23,9 @@ figure10_2:figure10_2.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_5:figure10_5.c
+	$(CC) $(CFLAGS)  $^ -o $@ 
+
+figure10_6:figure10_6.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_7:figure10_7.c
