@@ -11,6 +11,7 @@ TARGET+=figure10_6
 TARGET+=figure10_7
 TARGET+=figure10_8
 TARGET+=figure10_9
+TARGET+=figure10_10
 TARGET+=figure10_11
 TARGET+=figure10_14
 TARGET+=figure10_15
@@ -35,6 +36,9 @@ figure10_8:figure10_8.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_9:figure10_9.c
+	$(CC) $(CFLAGS)  $^ -o $@ 
+
+figure10_10:figure10_10.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_11:figure10_11.c
