@@ -35,5 +35,6 @@ main(void)
 static void
 sig_alrm(int signo)
 {
+	printf("received signo:%d\n", signo);
 	/* do nothing.  */
 }
