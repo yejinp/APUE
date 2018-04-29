@@ -7,12 +7,16 @@ TARGET=getgrent
 TARGET+=getgrgid
 TARGET+=getpwent
 TARGET+=uname
+TARGET+=figure6_9
 
 OBJECTS=figure6_2.o
 
 all: $(TARGET) $(OBJECTS);
 
 uname: uname.c
+	$(CC) $(CFLAGS)  $^ -o $@
+
+figure6_9: figure6_9.c
 	$(CC) $(CFLAGS)  $^ -o $@
 
 getgrent: getgrent.c
