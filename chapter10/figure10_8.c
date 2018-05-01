@@ -26,12 +26,3 @@ sleep1(unsigned int nsecs)
 	return (alarm(0));
 }
 
-
-int
-main(int argc, char *argv[])
-{
-
-	if(argc == 2) 
-		sleep1(atoi(argv[1]));
-
-}

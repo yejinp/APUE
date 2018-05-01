@@ -3,13 +3,12 @@ RM=rm -f
 
 CFLAGS=-g
 
-OBJECTS=
+OBJECTS=figure10_7.o
+OBJECTS+=figure10_8.o
 
 TARGET=figure10_2
 TARGET+=figure10_5
 TARGET+=figure10_6
-TARGET+=figure10_7
-TARGET+=figure10_8
 TARGET+=figure10_9
 TARGET+=figure10_10
 TARGET+=figure10_11
@@ -29,11 +28,11 @@ figure10_5:figure10_5.c
 figure10_6:figure10_6.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
-figure10_7:figure10_7.c
-	$(CC) $(CFLAGS)  $^ -o $@ 
+figure10_7.o:figure10_7.c
+	$(CC) $(CFLAGS)  $^ -c -o $@ 
 
-figure10_8:figure10_8.c
-	$(CC) $(CFLAGS)  $^ -o $@ 
+figure10_8.o:figure10_8.c
+	$(CC) $(CFLAGS)  $^ -c -o $@ 
 
 figure10_9:figure10_9.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
