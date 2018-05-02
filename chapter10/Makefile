@@ -34,7 +34,7 @@ figure10_7.o:figure10_7.c
 figure10_8.o:figure10_8.c
 	$(CC) $(CFLAGS)  $^ -c -o $@ 
 
-figure10_9:figure10_9.c
+figure10_9:figure10_9.c figure10_8.o
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_10:figure10_10.c

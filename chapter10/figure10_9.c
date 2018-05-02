@@ -7,29 +7,7 @@
 #include <errno.h>
 #include <setjmp.h>
 
-static jmp_buf env_alrm;
-static void
-sig_alrm(int signo)
-{
-	longjmp(env_alrm, 1);
-}
-
-unsigned int sleep2(unsigned int nsecs)
-{
-	if(signal(SIGALRM, sig_alrm) == SIG_ERR) {
-		return (nsecs);
-	}
-
-	if(setjmp(env_alrm) == 0) {
-		alarm(nsecs);
-		pause();
-	}
-
-	return (alarm(0));
-}
-
 static void sig_int(int);
-
 
 int main()
 {
@@ -52,9 +30,12 @@ sig_int(int signo)
 	volatile	int k;
 
 	printf("\n sig_int starting\n");
+	/* Attention: Turn these loops to run for more than 5 seconds 
+	 * on whatever system this test program is run
+	 */
 
 	for(i = 0; i < 300000; i++)
-		for(j = 0; j < 4000; j++)
+		for(j = 0; j < 400000; j++)
 			k += j * i;
 
 	printf("sig_int finished\n");
