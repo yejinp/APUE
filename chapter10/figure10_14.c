@@ -26,9 +26,3 @@ void pr_mask(const char *str)
 	errno = errno_save;
 }
 
-int
-main(void)
-{
-
-	pr_mask("main");
-}

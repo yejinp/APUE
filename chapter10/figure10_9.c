@@ -8,6 +8,7 @@
 #include <setjmp.h>
 
 static void sig_int(int);
+extern int sleep2(int);
 
 int main()
 {

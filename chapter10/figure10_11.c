@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <setjmp.h>
-#include <signal.h>
 #include <unistd.h>
+#include <errno.h>
+#include <signal.h>
+#include <setjmp.h>
 
+#define		MAXLINE 1024
 
-#define		MAXLINE	512
-
-static	void	sig_alrm(int);
-static	jmp_buf	env_alrm;
+static void sig_alrm(int);
+static jmp_buf	env_alrm;
 
 int
 main(void)
@@ -17,25 +17,29 @@ main(void)
 	char	line[MAXLINE];
 	
 	if(signal(SIGALRM, sig_alrm) == SIG_ERR) {
-		printf("signal(SIGALRM) error");
+		perror("signal(SIGALRM) error");
+		exit(8);
 	}
-	
 	if(setjmp(env_alrm) != 0) {
 		printf("read timeout\n");
+		exit(9);
 	}
 
 	alarm(10);
 	if((n = read(STDIN_FILENO, line, MAXLINE)) < 0) {
-		printf("read error");
+		perror("read error");
+		exit(9);
 	}
+
 	alarm(0);
 
-	write(STDIN_FILENO, line, n);
+	write(STDOUT_FILENO, line, n);
 	exit(0);
 }
 
 static void
 sig_alrm(int signo)
 {
-	longjmp(env_alrm, 1);
+	printf("received signo:%d\n", signo);
+	longjmp(env_alrm, 2);
 }
