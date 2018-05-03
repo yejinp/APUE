@@ -8,7 +8,7 @@ signal(int signo, Sigfunc *func)
 {
 	struct sigaction	act, oact;
 	act.sa_handler = func;
-	sigmeptyset(&act.sa_mask);
+	sigemptyset(&act.sa_mask);
 	act.sa_flags = 0;
 	if(signo == SIGALRM) {
 #ifdef	SA_INTERRUPT
