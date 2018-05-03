@@ -8,6 +8,8 @@ OBJECTS+=figure10_8.o
 OBJECTS+=figure10_14.o
 OBJECTS+=figure10_18.o
 OBJECTS+=figure10_19.o
+OBJECTS+=figure10_24.o
+OBJECTS+=figure10_25.o
 
 TARGET=figure10_2
 TARGET+=figure10_5
@@ -71,6 +73,12 @@ figure10_22:figure10_22.c figure10_14.o
 
 figure10_23:figure10_23.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
+
+figure10_24.o:figure10_24.c
+	$(CC) $(CFLAGS)  $^ -c -o $@ 
+
+figure10_25.o:figure10_25.c
+	$(CC) $(CFLAGS)  $^ -c -o $@ 
 
 figure10_30:figure10_30.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
