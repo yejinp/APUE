@@ -16,8 +16,10 @@ TARGET+=figure10_9
 TARGET+=figure10_10
 TARGET+=figure10_11
 TARGET+=figure10_15
-TARGET+=figure10_30
 TARGET+=figure10_20
+TARGET+=figure10_22
+TARGET+=figure10_23
+TARGET+=figure10_30
 TARGET+=strsignal
 
 all: $(TARGET) $(OBJECTS);
@@ -62,6 +64,12 @@ figure10_15:figure10_15.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_20:figure10_20.c figure10_14.o
+	$(CC) $(CFLAGS)  $^ -o $@ 
+
+figure10_22:figure10_22.c figure10_14.o
+	$(CC) $(CFLAGS)  $^ -o $@ 
+
+figure10_23:figure10_23.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_30:figure10_30.c

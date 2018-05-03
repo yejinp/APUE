@@ -24,14 +24,14 @@ main(void)
 		exit(9);
 	}
 
-	pr_mask("starting main:");
+	pr_mask("starting main:"); /* Figure 10.14 */
 
 	if(sigsetjmp(jmpbuf, 1)) {
 		pr_mask("ending main:");
 		exit(0);
 	}
 
-	canjmp = 1;
+	canjmp = 1; /* now sigsetjmp() is OK */
 
 	for( ; ; ) 
 		pause();
@@ -42,20 +42,20 @@ sig_usr1(int signo)
 {
 	time_t	starttime;
 	if(canjmp == 0) 
-		return ;
+		return ; /* unexpected signal, ignore */
 
 	pr_mask("starting sig_usr1:");
 
-	alarm(3);
+	alarm(3);  /* SIGALRM IN 3 SECONDS */
 	starttime = time(NULL);
 
-	for( ; ; )
+	for( ; ; ) /* busy wait for 5 seconds */
 		if(time(NULL) > starttime + 5)
 			break;
 
 	pr_mask("finishing sig_usr1:");
 	canjmp = 0;
-	siglongjmp(jmpbuf, 1);
+	siglongjmp(jmpbuf, 1); /* jump back to main, don't return */
 }
 
 static void
