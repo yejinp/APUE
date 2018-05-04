@@ -2,9 +2,8 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-int main()
+int main(void)
 {
-
 	printf("equal:%d\n", pthread_equal(pthread_self(), pthread_self()));
-
+	exit(0);
 }

@@ -33,7 +33,7 @@ int main()
 		printf("cat't join with thread 1: %s\n", strerror(err));
 	}
 
-	printf("thread 1 exit code %d\n", (int) tret);
+	printf("thread 1 exit code %ld\n", (long) tret);
 
 	err = pthread_create(&tid2, NULL, thr_fn2, NULL);
 	if(err) {
@@ -44,6 +44,6 @@ int main()
 	if(err) {
 		printf("cat't join with thread 1: %s\n", strerror(err));
 	}
-	printf("thread 2 exit code %d\n", (int) tret);
+	printf("thread 2 exit code %ld\n", (long) tret);
 	exit(0);
 }
