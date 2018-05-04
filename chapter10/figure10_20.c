@@ -19,7 +19,7 @@ main(void)
 		perror("signal(SIGUSR1) error");
 		exit(9);
 	}
-	if(signal(SIGALRM, sig_usr1) == SIG_ERR) {
+	if(signal(SIGALRM, sig_alrm) == SIG_ERR) {
 		perror("signal(SIGALRM) error");
 		exit(9);
 	}
