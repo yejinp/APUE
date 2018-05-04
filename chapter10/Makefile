@@ -21,6 +21,7 @@ TARGET+=figure10_15
 TARGET+=figure10_20
 TARGET+=figure10_22
 TARGET+=figure10_23
+TARGET+=figure10_26
 TARGET+=figure10_30
 TARGET+=strsignal
 
@@ -72,6 +73,9 @@ figure10_22:figure10_22.c figure10_14.o
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_23:figure10_23.c
+	$(CC) $(CFLAGS)  $^ -o $@ 
+
+figure10_26:figure10_26.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure10_24.o:figure10_24.c
