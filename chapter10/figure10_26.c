@@ -8,7 +8,7 @@ sig_int(int signo)
 	printf("caught SIGINT\n");
 }
 
-sig_chld(int signo) 
+static void sig_chld(int signo) 
 {
 	printf("caught SIGCHLD\n");
 }
