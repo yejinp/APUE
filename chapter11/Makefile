@@ -15,6 +15,7 @@ OBJECTS=figure11_10.o
 OBJECTS+=figure11_11.o
 OBJECTS+=figure11_12.o
 OBJECTS+=figure11_13.o
+OBJECTS+=figure11_14.o
 
 all: $(TARGET) $(OBJECTS);
 
@@ -40,6 +41,9 @@ figure11_12.o: figure11_12.c
 	$(CC) $^ -c -o $@ $(CFLAGS) 
 
 figure11_13.o: figure11_13.c
+	$(CC) $^ -c -o $@ $(CFLAGS) 
+
+figure11_14.o: figure11_14.c
 	$(CC) $^ -c -o $@ $(CFLAGS) 
 
 pthread_detach: pthread_detach.c
