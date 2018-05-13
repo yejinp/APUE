@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
 #include <unistd.h>
+#include <pthread.h>
 
 static void *test_thd(void *argv)
 {
 	int err;
 	printf("in the thread.\n");
-	printf("concurrency:%d\n",pthread_getconcurrency());
+	printf("concurrency:%d\n", pthread_getconcurrency());
 	err = pthread_setconcurrency(3);
 	if(err) {
 		printf("set concurrency to 3 error.\n");
@@ -36,6 +36,5 @@ int main()
 		exit(2);
 	}
 	sleep(5);
-
 	exit(0);
 }
