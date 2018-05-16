@@ -11,6 +11,7 @@ TARGET+=figure15_15
 TARGET+=figure15_17
 TARGET+=figure15_18
 TARGET+=figure15_19
+TARGET+=ftok
 
 OBJECTS=figure15_7.o
 OBJECTS=figure15_12.o
@@ -36,6 +37,9 @@ figure15_17: figure15_17.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure15_18: figure15_18.c
+	$(CC) $(CFLAGS)  $^ -o $@ 
+
+ftok: ftok.c
 	$(CC) $(CFLAGS)  $^ -o $@ 
 
 figure15_19: figure15_19.c
